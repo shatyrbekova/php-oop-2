@@ -21,6 +21,14 @@ class EShop {
       $this ->address = $addressEShop;
 
     }
+
+    public function addProduct(Product $nomeProduct){
+
+        $this ->products[]=$nomeProduct;
+    }
+    public function getProducts(){
+        return $this ->products;
+    }
     // mettiamo una lista di prodotti
 
 }
@@ -111,4 +119,5 @@ class PremiumUser {
 $eShop = new EShop('Amazon', 'Via della Magliana, 375, 00148 Roma RM');
 var_dump($eShop);
 
+$primaBeautyProduct = new BeautyProduct()
 ?>
