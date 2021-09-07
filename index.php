@@ -22,7 +22,7 @@ class EShop {
 
     }
 
-    public function addProduct(Product $nomeProduct){
+    public function addProducts(Product $nomeProduct){
 
         $this ->products[]=$nomeProduct;
     }
@@ -39,7 +39,7 @@ class Product {
  
     protected $label;
     protected $price;
-    protected $type;
+    protected  $type;
 
     public function getLabel() {
         return $this->label;
@@ -118,6 +118,19 @@ class PremiumUser {
 
 $eShop = new EShop('Amazon', 'Via della Magliana, 375, 00148 Roma RM');
 var_dump($eShop);
+?>
+<hr>
+<?php
+$mascara = new Product('Chanel', 'Beauty', 50);
+$cellulare = new Product('Samsung', 'Tech', 400);
+$tastiera = new Product('hp', 'Tech', 20);
+$matita = new Product('Kiko', 'Beauty', 6);
 
-$primaBeautyProduct = new BeautyProduct()
+$eShop ->addProducts($mascara);
+$eShop ->addProducts($matita);
+$eShop ->addProducts($cellulare);
+$eShop ->addProducts($tastiera);
+
+var_dump($eShop -> getProducts());
+
 ?>
