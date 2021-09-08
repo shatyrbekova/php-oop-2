@@ -100,6 +100,7 @@ class User {
     public $number;
     public $address;
     public $sconto = 0;
+    public $creditCard  =[];
     public function __construct(string $nome, string $cognome, string $email, int $number, string $address)
 
     {
@@ -108,7 +109,9 @@ class User {
       $this ->email =$email;
       $this ->number =$number;
     }
-
+    public function addCreditCard(CreditCard $creditCards){
+        $this ->creditCards[]=$creditCards;
+    }
 }
 // creiamo un utente premium
 class PremiumUser {
@@ -142,17 +145,13 @@ class CreditCard{
  public $bank;
  public $term;
 
- function __construct(string $bankName, int $termDate){
+ function __construct(string $bankName, string $termDate){
 
     $this -> bank = $bankName;
     $this -> term= $termDate;
     
  }
 }
-
-// 6. l'utente normale acquista un prodotto
-// 7. l'utente premium acquista un altro prodotto (e riceve lo sconto)
-
 
 $eShop = new EShop('Amazon', 'Via della Magliana, 375, 00148 Roma RM');
 var_dump($eShop);
@@ -163,8 +162,8 @@ var_dump($eShop);
 
 <?php
 
-// aggiungiamoli all'eshop i prodotti
 
+// aggiungiamoli all'eshop i prodotti
 $mascara = new BeautyProduct('Chanel', 'Beauty', 50);
 $cellulare = new TechProduct('Samsung', 'Tech', 400);
 $tastiera = new TechProduct('hp', 'Tech', 20);
@@ -179,15 +178,20 @@ var_dump($eShop -> getProducts());
 ?>
 <br>
 <br><hr>
+<h1>Ciao ahsbxas</h1>
 <?php
-$cardUser = new CreditCard();
+
 
 $client1 = new User('Perizat', 'Shatyrbekova', 'sdcwecw@gmail.com', 333345533, 'Via Ferdinando Acton 21');
 $client2 = new PremiumUser('Pippo', 'Baudi', 'pippo.baudi@gmail.com', 3313121312, 'Piazza Cavour 155');
 
-$cardUser = new CreditCard('Che Banca', 06/2022);
-$client1 = addCreditCard($cardUser);
+$cardUser = new CreditCard('Che Banca', '06/2022');
+$cardPremiumUser = new CreditCard('MPS', '08/2025');
+$client1 -> addCreditCard($cardUser);
+$client2 -> addCreditCard($cardPremiumUser);
+echo  "<h1>Cliente 1</h1>";
 var_dump($client1);
+echo "<h1>Cliente 2</h1>";
 var_dump($client2);
 
 ?>
