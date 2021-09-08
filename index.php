@@ -131,37 +131,33 @@ class PremiumUser {
       $this ->number =$number;
     }
 
-    // public function getCreditCard(CreditCard $creditCard){
-
-    // }
+    public function addCreditCard(CreditCard $creditCards){
+        $this ->creditCards[]=$creditCards;
+    }
 
 }
 //inseriamo le carte di credito per ciascun utente
 class CreditCard{
 
- public $name;
+ public $bank;
  public $term;
- public function getName() {
-    return $this->name;
+
+ function __construct(string $bankName, int $termDate){
+
+    $this -> bank = $bankName;
+    $this -> term= $termDate;
+    
+ }
 }
 
-public function getTerm() {
-    return $this->term;
-}
-}
+// 6. l'utente normale acquista un prodotto
+// 7. l'utente premium acquista un altro prodotto (e riceve lo sconto)
 
-
-// ----------------------------------------------
-/*
-
-
-
-6. l'utente normale acquista un prodotto
-7. l'utente premium acquista un altro prodotto (e riceve lo sconto)
-*/
 
 $eShop = new EShop('Amazon', 'Via della Magliana, 375, 00148 Roma RM');
 var_dump($eShop);
+
+
 ?>
 <hr>
 
@@ -189,6 +185,8 @@ $cardUser = new CreditCard();
 $client1 = new User('Perizat', 'Shatyrbekova', 'sdcwecw@gmail.com', 333345533, 'Via Ferdinando Acton 21');
 $client2 = new PremiumUser('Pippo', 'Baudi', 'pippo.baudi@gmail.com', 3313121312, 'Piazza Cavour 155');
 
+$cardUser = new CreditCard('Che Banca', 06/2022);
+$client1 = addCreditCard($cardUser);
 var_dump($client1);
 var_dump($client2);
 
