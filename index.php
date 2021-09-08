@@ -132,6 +132,7 @@ class PremiumUser {
       $this ->cognome = $cognome;
       $this ->email =$email;
       $this ->number =$number;
+      $this ->address=$address;
     }
 
     public function addCreditCard(CreditCard $creditCards){
