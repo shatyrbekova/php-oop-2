@@ -178,7 +178,7 @@ var_dump($eShop -> getProducts());
 ?>
 <br>
 <br><hr>
-<h1>Ciao ahsbxas</h1>
+
 <?php
 
 
